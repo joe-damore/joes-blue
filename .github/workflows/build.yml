@@ -28,6 +28,11 @@ jobs:
     name: Build and push image
     runs-on: ubuntu-24.04
 
+    strategy:
+      matrix:
+        variant: [default, nvidia]
+        edition: [minimal]
+
     permissions:
       contents: read
       packages: write
@@ -52,6 +57,20 @@ jobs:
           # https://artifacthub.io/docs/topics/repositories/container-images/
           # https://linux.die.net/man/1/date
           echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" >> $GITHUB_OUTPUT
+
+      # Set image name env var for default variants.
+      # "joes-blue_<edition>"
+      - name: Set image name (default variant)
+        if: matrix.variant == 'default'
+        run: |
+          echo "${{ github.event.repository.name }}_${{ matrix.edition }} >> $GITHUB_ENV"
+
+      # Set image name env var for Nvidia variants.
+      # "joes-blue_<edition>_nvidia"
+      - name: Set image name (Nvidia variant)
+        if: matrix.variant == 'nvidia'
+        run: |
+          echo "${{ github.event.repository.name }}_${{ matrix.edition }}_nvidia >> $GITHUB_ENV"
 
       # Image metadata for https://artifacthub.io/ - This is optional but is highly recommended so we all can get a index of all the custom images
       # The metadata by itself is not going to do anything, you choose if you want your image to be on ArtifactHub or not.
@@ -94,7 +113,7 @@ jobs:
             ./Containerfile
           build-args: |
             BASE_IMAGE_NAME=kinoite
-            BASE_IMAGE_VARIANT=nvidia
+            BASE_IMAGE_VARIANT=${{ matrix.variant }}
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
           image: ${{ env.IMAGE_NAME }}
