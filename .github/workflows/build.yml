@@ -59,7 +59,7 @@ jobs:
 
       # Set image name env var for default variants.
       # "joes-blue_<edition>"
-      - name: Set image environment variables
+      - name: Set image name
         if: matrix.variant == 'default'
         run: |
           echo "IMAGE_NAME=${{ github.event.repository.name }}_${{ matrix.edition }}" >> $GITHUB_ENV
