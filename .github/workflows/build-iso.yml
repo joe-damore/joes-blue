@@ -24,7 +24,7 @@ on:
       - './Justfile'
 
 env:
-  IMAGE_REGISTRY: "ghcr.io/${{ github.repository }}"
+  IMAGE_REGISTRY: "ghcr.io/joe-damore"
   DEFAULT_TAG: "latest"
 
 concurrency:
@@ -32,6 +32,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  matrix:
+    variant: [default, nvidia]
+    edition: [minimal]
+
   build:
     name: Build ISOs
     runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
@@ -47,6 +51,16 @@ jobs:
         run: |
           echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> ${GITHUB_ENV}
       
+      - name: set image registry name
+        if: matrix.variant == 'default'
+        run: |
+          echo "IMAGE_NAME=${{ github.event.repository.name}}_${{ matrix.edition }}" >> ${GITHUB_ENV}
+
+      - name: set image registry name (Nvidia variant)
+        if: matrix.variant == 'nvidia'
+        run: |
+          echo "IMAGE_NAME=${{ github.event.repository.name}}_${{ matrix.edition }}_nvidia" >> ${GITHUB_ENV}
+
       - name: Install dependencies
         if: inputs.platform == 'arm64'
         run: |
@@ -74,7 +88,7 @@ jobs:
           bootc-image-builder-image: ghcr.io/centos-workstation/bootc-image-builder:latest
           use-librepo: true
           config-file: ./iso.toml
-          image: ${{ env.IMAGE_REGISTRY }}:${{ env.DEFAULT_TAG }}
+          image: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}
 
       - name: Upload ISOs and Checksum to Job Artifacts
         if: inputs.upload-to-s3 != true && github.event_name != 'pull_request'
