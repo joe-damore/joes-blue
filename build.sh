@@ -14,6 +14,9 @@ set -ouex pipefail
 # Install Inter and Fira Code
 dnf5 -y install rsms-inter-fonts fira-code-fonts
 
+# Install Papirus icon theme.
+dnf5 -y install papirus-icon-theme
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
