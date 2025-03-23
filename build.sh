@@ -11,6 +11,9 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 
+# Install Linux user utils (i.e. chsh, chfn)
+dnf5 -y install util-linux-user
+
 # Install Inter and Fira Code
 dnf5 -y install rsms-inter-fonts fira-code-fonts
 
