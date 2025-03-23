@@ -23,6 +23,11 @@ dnf5 -y copr enable ublue-os/staging
 dnf5 install -y kitty devpod fastfetch zsh
 dnf5 -y copr disable ublue-os/staging
 
+# Install Sublime HQ GPG key to facilitate install of Sublime Text, Sublime Merge.
+# Enable Sublime Text and Sublime Merge repo, but do not install either by default.
+wget https://download.sublimetext.com/sublimehq-rpm-pub.gpg -O /etc/pki/rpm-gpg
+dnf5 -y config-manager addrepo --from-repofile=https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
