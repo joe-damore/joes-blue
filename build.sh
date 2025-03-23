@@ -11,6 +11,8 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 
+# Install Inter and Fira Code
+dnf5 -y install rsms-inter-fonts fira-code-fonts
 
 # Use a COPR Example:
 #
