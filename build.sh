@@ -20,7 +20,7 @@ set -ouex pipefail
 # 
 
 dnf5 -y copr enable ublue-os/staging
-dnf5 install -y kitty devpod fastfetch
+dnf5 install -y kitty devpod fastfetch zsh
 dnf5 -y copr disable ublue-os/staging
 
 #### Example for enabling a System Unit File
