@@ -20,7 +20,7 @@ set -ouex pipefail
 # 
 
 dnf5 -y copr enable ublue-os/staging
-dnf5 install -y kitty devpod fastfetch zsh
+dnf5 install -y kitty devpod fastfetch zsh podman-compose
 dnf5 -y copr disable ublue-os/staging
 
 # Install Sublime HQ GPG key to facilitate install of Sublime Text, Sublime Merge.
