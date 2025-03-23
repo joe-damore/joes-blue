@@ -28,6 +28,12 @@ dnf5 -y copr disable ublue-os/staging
 wget https://download.sublimetext.com/sublimehq-rpm-pub.gpg -O /etc/pki/rpm-gpg
 dnf5 -y config-manager addrepo --from-repofile=https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 
+# Enable RPMFusion
+dnf5 -y install \
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
+
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
