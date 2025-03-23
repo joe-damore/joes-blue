@@ -62,7 +62,7 @@ jobs:
       - name: Set image environment variables
         if: matrix.variant == 'default'
         run: |
-          echo "IMAGE_NAME=${{ github.event.repository.name }}_${{ matrix.edition }} >> $GITHUB_ENV"
+          echo "IMAGE_NAME=${{ github.event.repository.name }}_${{ matrix.edition }}" >> $GITHUB_ENV
 
       # Set image name env var for Nvidia variants.
       # "joes-blue_<edition>_nvidia"
