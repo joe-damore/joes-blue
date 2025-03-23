@@ -32,15 +32,14 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  matrix:
-    variant: [default, nvidia]
-    edition: [minimal]
-
   build:
     name: Build ISOs
     runs-on: ${{ inputs.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     strategy:
       fail-fast: false
+      matrix:
+        variant: [default, nvidia]
+        edition: [minimal]
     permissions:
       contents: read
       packages: read
