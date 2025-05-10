@@ -17,6 +17,9 @@ dnf5 -y install rsms-inter-fonts fira-code-fonts
 # Install Papirus icon theme.
 dnf5 -y install papirus-icon-theme
 
+# Install Gjs.
+dnf5 -y install gjs
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
