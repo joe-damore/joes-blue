@@ -37,7 +37,7 @@ wget https://download.sublimetext.com/sublimehq-rpm-pub.gpg -O /etc/pki/rpm-gpg
 dnf5 -y config-manager addrepo --from-repofile=https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 
 # Enable Tailscale GPG key to facilitate install of Tailscale, but do not install Tailscale by default.
-dnf config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+dnf5 -y config-manager addrepo --from-repofile=https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
 # Enable RPMFusion
 dnf5 -y install \
