@@ -20,6 +20,9 @@ dnf5 -y install papirus-icon-theme
 # Install Gjs.
 dnf5 -y install gjs
 
+# Install virtualization tools.
+dnf5 -y install @virtualization
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
