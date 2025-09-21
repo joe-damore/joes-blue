@@ -22,6 +22,7 @@ dnf5 -y install gjs
 
 # Install virtualization tools.
 dnf5 -y install @virtualization
+groupadd libvirt
 
 # Use a COPR Example:
 #
@@ -51,3 +52,4 @@ dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+systemctl enable libvirtd
