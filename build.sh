@@ -22,7 +22,6 @@ dnf5 -y install gjs
 
 # Install virtualization tools.
 dnf5 -y install @virtualization
-groupadd libvirt
 
 # Use a COPR Example:
 #
