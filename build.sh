@@ -23,6 +23,9 @@ dnf5 -y install gjs
 # Install virtualization tools.
 dnf5 -y install @virtualization
 
+# Install Helix.
+dnf5 -y install helix
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
