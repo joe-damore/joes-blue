@@ -34,7 +34,7 @@ dnf5 -y install helix
 # 
 
 dnf5 -y copr enable ublue-os/staging
-dnf5 install -y kitty devpod fastfetch zsh podman-compose container-selinux
+dnf5 install -y kitty devpod fastfetch zsh podman-compose container-selinux bluez
 dnf5 -y copr disable ublue-os/staging
 
 # Install Sublime HQ GPG key to facilitate install of Sublime Text, Sublime Merge.
@@ -55,3 +55,4 @@ dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
 systemctl enable podman.socket
 systemctl enable libvirtd
+systemctl enable bluetooth
