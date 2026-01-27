@@ -26,6 +26,9 @@ dnf5 -y install @virtualization
 # Install Helix.
 dnf5 -y install helix
 
+# Install GParted
+dnf5 -y install gparted
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
