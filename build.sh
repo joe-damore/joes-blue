@@ -29,6 +29,9 @@ dnf5 -y install helix
 # Install GParted
 dnf5 -y install gparted
 
+# Install nix package manager
+dnf5 -y install nix
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
