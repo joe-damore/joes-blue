@@ -57,8 +57,8 @@ dnf5 -y install \
     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 
-mkdir /nix
-mkdir /var/nix
+mkdir -p /nix
+mkdir -p /var/nix
 
 #### Example for enabling a System Unit File
 
