@@ -19,6 +19,7 @@ FROM ${BASE_IMAGE_RESOLVED}:${BASE_IMAGE_FEDORA_MAJOR_VERSION} AS base
 ## the following RUN directive does all the things required to run "build.sh" as recommended.
 
 COPY build.sh /tmp/build.sh
+COPY /rootfs/. /
 
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build.sh && \
