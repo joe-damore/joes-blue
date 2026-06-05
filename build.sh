@@ -36,7 +36,7 @@ dnf5 -y install gparted
 dnf5 -y install nix
 
 # Install Container-related dependencies
-dnf5 -y podman-compose container-selinux
+dnf5 -y install podman-compose container-selinux
 
 # Use a COPR Example:
 #
