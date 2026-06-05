@@ -11,6 +11,9 @@ set -ouex pipefail
 
 # this installs a package from fedora repos
 
+# Install utilities, etc.
+dnf5 -y install bluez kitty fastfetch zsh
+
 # Install Inter and Fira Code
 dnf5 -y install rsms-inter-fonts fira-code-fonts
 
@@ -32,6 +35,9 @@ dnf5 -y install gparted
 # Install nix package manager
 dnf5 -y install nix
 
+# Install Container-related dependencies
+dnf5 -y podman-compose container-selinux
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
@@ -39,9 +45,9 @@ dnf5 -y install nix
 # Disable COPRs so they don't end up enabled on the final image:
 # 
 
-dnf5 -y copr enable ublue-os/staging
-dnf5 install -y kitty devpod fastfetch zsh podman-compose container-selinux bluez
-dnf5 -y copr disable ublue-os/staging
+# dnf5 -y copr enable ublue-os/staging
+# dnf5 install -y kitty fastfetch zsh
+# dnf5 -y copr disable ublue-os/staging
 
 # Install Sublime HQ GPG key to facilitate install of Sublime Text, Sublime Merge.
 # Enable Sublime Text and Sublime Merge repo, but do not install either by default.
