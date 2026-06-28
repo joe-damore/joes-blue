@@ -14,6 +14,9 @@ set -ouex pipefail
 # Install utilities, etc.
 dnf5 -y install bluez kitty fastfetch zsh
 
+# Install dev tools (TODO: Move these to special "Developer" edition or similar)
+dnf5 -y install ansible
+
 # Install Inter and Fira Code
 dnf5 -y install rsms-inter-fonts fira-code-fonts
 
@@ -35,7 +38,7 @@ dnf5 -y install gparted
 # Install nix package manager
 dnf5 -y install nix
 
-# Install Container-related dependencies
+# Install Container-related dependencies (TODO: Move these to special "Developer" edition or similar)
 dnf5 -y install podman-compose container-selinux
 
 # Use a COPR Example:
