@@ -41,6 +41,11 @@ dnf5 -y install nix
 # Install Container-related dependencies (TODO: Move these to special "Developer" edition or similar)
 dnf5 -y install podman-compose container-selinux
 
+# Install mise-en-place (TODO: Move this to special "Developer" edition or similar)
+dnf5 -y copr enable jdxcode/mise
+dnf5 -y install mise
+dnf5 -y copr disable jdxcode/mise
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
