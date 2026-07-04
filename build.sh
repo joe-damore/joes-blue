@@ -2,6 +2,14 @@
 
 set -ouex pipefail
 
+# Workaround for bootc-image-builder requiring PLATFORM_ID in os-release.
+# Fedora 43+ dropped this field, but bootc-image-builder (archived upstream)
+# still requires it for manifest generation during ISO/disk image builds.
+# See: https://fedoraproject.org/wiki/Changes/Drop_PLATFORM_ID
+if ! grep -q PLATFORM_ID /etc/os-release 2>/dev/null; then
+    echo 'PLATFORM_ID="platform:f44"' >> /etc/os-release
+fi
+
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -51,7 +59,7 @@ dnf5 -y copr disable jdxcode/mise
 # dnf5 -y copr enable ublue-os/staging
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
-# 
+#
 
 # dnf5 -y copr enable ublue-os/staging
 # dnf5 install -y kitty fastfetch zsh
