@@ -44,7 +44,7 @@ dnf5 -y install helix
 dnf5 -y install gparted
 
 # Install nix package manager
-dnf5 -y install nix
+dnf5 -y install nix nix-daemon
 
 # Install Container-related dependencies (TODO: Move these to special "Developer" edition or similar)
 dnf5 -y install podman-compose container-selinux
@@ -88,3 +88,4 @@ systemctl enable podman.socket
 systemctl enable libvirtd
 systemctl enable bluetooth
 systemctl enable nix.mount
+systemctl enable nix-daemon
