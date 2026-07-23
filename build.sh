@@ -20,7 +20,7 @@ fi
 # this installs a package from fedora repos
 
 # Install utilities, etc.
-dnf5 -y install bluez kitty fastfetch zsh direnv
+dnf5 -y install bluez kitty fastfetch zsh direnv shfmt
 
 # Install dev tools (TODO: Move these to special "Developer" edition or similar)
 dnf5 -y install ansible
