@@ -23,7 +23,7 @@ fi
 dnf5 -y install bluez kitty fastfetch zsh direnv shfmt ssh-audit
 
 # Install dev tools (TODO: Move these to special "Developer" edition or similar)
-dnf5 -y install ansible
+dnf5 -y install ansible krusader
 
 # Install Inter and Fira Code
 dnf5 -y install rsms-inter-fonts fira-code-fonts
