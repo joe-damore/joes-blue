@@ -52,6 +52,7 @@ dnf5 -y install podman-compose container-selinux
 dnf5 -y install thunderbird kdiff3 kompare krename
 
 dnf5 -y install wl-clipboard
+dnf5 -y install wireless-regdb
 
 # Install mise-en-place (TODO: Move this to special "Developer" edition or similar)
 dnf5 -y copr enable jdxcode/mise
